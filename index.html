@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ファストカルテ｜現場で鍛えた美容クリニックの電子カルテ</title>
+<meta name="description" content="机の上ではなく、受付と診察室で鍛えた電子カルテ。美容クリニックの現場で得た工夫を、そのまま機能にしています。">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4efe6;--paper2:#ebe4d7;--ink:#1d1a16;--sub:#6e665a;--line:#d8cfbf;--red:#b8321f;
+  --ui-ink:#0f1f3a;--ui-sub:#5a6780;--ui-line:#e3e8f0;--ui-bg:#f6f8fb;--blue:#1f5eff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.85}
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+.min{font-family:"Shippori Mincho B1",serif}
+a{color:inherit}
+nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-size:14px}
+.logo{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:22px;letter-spacing:.12em;text-decoration:none}
+nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0;color:var(--sub)}nav ul a{text-decoration:none}
+.btn{display:inline-block;padding:12px 24px;font-weight:700;text-decoration:none;border:1.5px solid var(--ink)}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn.sm{padding:9px 18px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:330px 1fr;gap:60px;padding:40px 0 60px}
+.kanji{height:330px;font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:300px;line-height:1;position:relative}
+.kanji:after{content:"";position:absolute;width:74px;height:74px;border:3px solid var(--red);left:258px;top:216px;transform:rotate(4deg);border-radius:4px}
+.seal{position:absolute;left:270px;top:224px;color:var(--red);font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:22px;line-height:1.05;writing-mode:vertical-rl;letter-spacing:.06em}
+.copy{padding-top:24px}
+.eyebrow{color:var(--red);font-weight:700;letter-spacing:.2em;font-size:13px}
+h1{font-family:"Shippori Mincho B1",serif;font-size:58px;line-height:1.35;font-weight:800;margin:14px 0 24px}
+.lead{font-size:17px;color:#3d372f;max-width:32em;margin:0}
+.btns{display:flex;gap:16px;margin-top:30px;flex-wrap:wrap}
+.case{display:inline-flex;align-items:center;gap:10px;margin-top:22px;border:1px solid var(--ink);padding:8px 14px;font-size:14px;background:#fff}.case b{color:var(--red);font-size:12px;letter-spacing:.15em}
+.facts{display:flex;gap:26px;margin-top:28px;font-size:13px;color:var(--sub);flex-wrap:wrap}
+.facts b{color:var(--ink);font-family:"Shippori Mincho B1",serif;font-size:20px;margin-right:4px}
+
+/* screen sample */
+.screen{background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0 64px}
+.screen .cap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;gap:20px}
+.screen h2{margin:0}
+.note{font-size:12px;color:var(--sub)}
+.shotmain{margin:0}.shotmain img,.shots3 img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);box-shadow:0 24px 50px -24px rgba(29,26,22,.35);background:#fff}
+.shotmain figcaption,.shots3 figcaption{font-size:14px;color:#3d372f;margin-top:10px}.shotmain b,.shots3 b{font-family:"Shippori Mincho B1",serif;font-size:16px}
+.shots3{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:34px;align-items:start}.shots3 .wide{grid-column:1/-1}.shots3 figure{margin:0}
+.parts{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:0 0 22px}
+.part{border:1px solid var(--line);background:#fff;padding:18px 20px}.part h3{font-family:"Shippori Mincho B1",serif;font-size:18px;margin:0 0 4px}.part p{margin:0;font-size:14px;color:#3d372f}
+.part.main{border:2px solid var(--red)}.part .lbl{font-size:11px;color:var(--red);font-weight:700;letter-spacing:.1em}
+/* sections */
+.sec{display:grid;grid-template-columns:240px 1fr;gap:50px;padding:76px 0;border-bottom:1px solid var(--line)}
+.sec h2,.screen h2{font-family:"Shippori Mincho B1",serif;font-size:30px;line-height:1.5;margin:0}
+h2 small{display:block;font-family:"Noto Sans JP";font-size:12px;color:var(--red);letter-spacing:.2em}
+.intro{font-size:16px;color:#3d372f;margin:0 0 30px}
+
+.kufu{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--ink)}
+.k{padding:26px 26px 26px 0;border-bottom:1px solid var(--line)}
+.k:nth-child(odd){border-right:1px solid var(--line)}.k:nth-child(even){padding-left:26px;padding-right:0}
+.k .where{font-size:12px;color:var(--red);font-weight:700;letter-spacing:.1em}
+.k h3{font-family:"Shippori Mincho B1",serif;font-size:21px;margin:4px 0 10px;line-height:1.5}
+.k .voice{font-size:14px;color:var(--sub);border-left:3px solid var(--line);padding-left:12px;margin:0 0 10px}
+.k p{margin:0;font-size:15px}
+
+.num{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin-bottom:44px}
+.num div{padding:26px;border-right:1px solid var(--line)}.num div:last-child{border:0}
+.num b{font-family:"Shippori Mincho B1",serif;font-size:52px;line-height:1.1;display:block}
+.num span{font-size:14px;color:var(--sub)}
+.tl{border-left:2px solid var(--ink);padding-left:30px}
+.ev{position:relative;padding-bottom:28px}.ev:last-child{padding-bottom:0}
+.ev:before{content:"";position:absolute;left:-38px;top:8px;width:12px;height:12px;background:var(--paper);border:2px solid var(--ink);border-radius:50%}
+.ev.hot:before{background:var(--red);border-color:var(--red)}
+.ev .d{font-family:"Shippori Mincho B1",serif;font-weight:700;font-size:15px;color:var(--sub)}
+.ev b{font-size:18px;display:block}.ev p{margin:2px 0 0;color:#4a4339;font-size:15px}
+
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.feat h3{font-family:"Shippori Mincho B1",serif;font-size:19px;margin:0 0 8px;padding-bottom:8px;border-bottom:1px solid var(--ink)}
+.feat ul{margin:0;padding-left:1.1em;font-size:14px;color:#3d372f}.feat li{margin:3px 0}
+
+.plans{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink)}
+.plan{padding:24px 20px;border-right:1px solid var(--line);display:flex;flex-direction:column;background:var(--paper)}
+.plan:last-child{border:0}.plan.main{background:#fff;outline:2px solid var(--red);outline-offset:-2px}
+.plan .tag{font-size:11px;color:var(--red);font-weight:700;letter-spacing:.1em;min-height:18px}
+#price{grid-template-columns:1fr;gap:24px}
+.plan h3{white-space:nowrap;font-family:"Shippori Mincho B1",serif;font-size:21px;margin:2px 0}
+.price{font-family:"Shippori Mincho B1",serif;font-size:34px;font-weight:800;line-height:1.2}.price small{font-size:13px;font-family:"Noto Sans JP";font-weight:500;color:var(--sub)}
+.plan ul{padding-left:1.1em;font-size:13px;margin:12px 0;color:#3d372f;flex:1}
+.plan .init{font-size:12px;color:var(--sub);border-top:1px dashed var(--line);padding-top:8px}
+.terms{font-size:13px;color:var(--sub);margin-top:16px}
+
+.doc{display:flex;gap:30px;align-items:flex-start}
+.photo{width:180px;height:220px;background:repeating-linear-gradient(45deg,#e6dfd2 0 10px,#ede7dc 10px 20px);display:grid;place-items:center;color:var(--sub);font-size:12px;flex:none}
+.shot{margin:0;flex:0 0 360px}.shot img{width:100%;height:auto;display:block;border:1px solid var(--line)}.shot figcaption{font-size:11px;color:var(--sub);margin-top:6px}
+.doc p{margin:0 0 12px;font-size:16px}
+.faq details{border-bottom:1px solid var(--line);padding:16px 0}.faq details:first-child{border-top:1px solid var(--ink)}
+.faq summary{font-weight:700;cursor:pointer;list-style:none}.faq summary:before{content:"問　";color:var(--red);font-family:"Shippori Mincho B1",serif}
+.faq p{margin:8px 0 0;color:#3d372f;font-size:15px}
+.final{text-align:center;padding:90px 0}
+.final h2{font-family:"Shippori Mincho B1",serif;font-size:36px;margin:0 0 14px;line-height:1.5}
+.final p{color:var(--sub);margin:0 0 28px}
+footer{padding:30px 0;color:var(--sub);font-size:13px;border-top:1px solid var(--line)}
+
+@media(max-width:900px){.plans{grid-template-columns:1fr 1fr}.plan:nth-child(2){border-right:0}.plan{border-bottom:1px solid var(--line)}.feat{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){
+ .wrap{padding:0 16px}nav ul{display:none}
+ .hero{grid-template-columns:1fr;gap:0;padding:10px 0 44px}
+ .kanji{font-size:150px;height:170px}.kanji:after{left:128px;top:100px;width:52px;height:52px}.seal{left:136px;top:104px;font-size:16px}
+ .copy{padding-top:0}h1{font-size:31px}.lead{font-size:15px}
+ .screen{padding:40px 0}.screen .cap{flex-direction:column;gap:4px}
+ .shots3{grid-template-columns:1fr}.parts{grid-template-columns:1fr}
+ .sec{grid-template-columns:1fr;gap:20px;padding:48px 0}
+ .kufu{grid-template-columns:1fr}.k,.k:nth-child(even){padding:22px 0;border-right:0}
+ .num div{padding:14px 8px}.num b{font-size:32px}.num span{font-size:11px}
+ .feat{grid-template-columns:1fr}.plans{grid-template-columns:1fr}.plan{border-right:0}
+ .doc{flex-direction:column}.shot{flex:none;width:100%}.final h2{font-size:21px}
+}
+</style></head><body>
+<div class="wrap">
+<nav><a class="logo" href="#">ファストカルテ</a>
+<ul><li><a href="#kufu">現場の工夫</a></li><li><a href="#case">導入実績</a></li><li><a href="#partial">部分導入</a></li><li><a href="#record">鍛えた記録</a></li><li><a href="#price">料金</a></li><li><a href="#maker">つくり手</a></li></ul>
+<a class="btn sm" href="#contact">相談する</a></nav>
+
+<section class="hero">
+ <div class="kanji">鍛<span class="seal">現場<br>仕込</span></div>
+ <div class="copy">
+  <div class="eyebrow">美容・自由診療クリニックの電子カルテ</div>
+  <h1>机の上ではなく、<br>現場で鍛えたカルテ。</h1>
+  <p class="lead">朝の受付、混み合う午後、閉院後の締め。スタッフが手を止めた場所には、必ず理由があります。ファストカルテは、医師が自分のクリニックで毎日使いながら、現場で見つけた工夫をひとつずつ機能にしてきた電子カルテです。</p>
+  <div class="btns"><a class="btn solid" href="#contact">導入の相談をする</a><a class="btn" href="#price">料金を見る</a></div>
+  <div class="case"><b>導入実績</b>しんゆり美容健康クリニック 府中院</div>
+  <div class="facts"><span><b>258</b>回の改修（本番稼働35日間）</span><span><b>3</b>つの予約サイトを自動取り込み</span><span><b>医師</b>が開発・運用</span></div>
+ </div>
+</section>
+</div>
+
+<section class="screen"><div class="wrap">
+ <div class="cap"><h2><small>SCREEN</small>実際の画面</h2><span class="note">練習用の院の画面です。患者はすべて架空です。</span></div>
+ <figure class="shotmain"><img src="img/screen-reception.jpg" alt="受付の画面" width="1600" height="1000" loading="lazy"><figcaption><b>受付</b>　予約サイトごとの色、番号札、状態の切り替え、呼び出しを1つの画面で。Alt＋数字で患者を選び、数字キーで状態を変えます。</figcaption></figure>
+ <div class="shots3">
+  <figure class="wide"><img src="img/screen-chart.jpg" alt="カルテの画面" width="1600" height="632" loading="lazy"><figcaption><b>カルテ</b>　右のアイコンからオーダー。予約どおりの施術はボタン1つで入ります。</figcaption></figure>
+  <figure><img src="img/screen-schedule.jpg" alt="予定の画面" width="1070" height="1180" loading="lazy"><figcaption><b>予定</b>　どの予約サイトからの予約か、いまどの状態かが一目で分かります。</figcaption></figure>
+  <figure><img src="img/screen-board.jpg" alt="待合のモニター" width="1200" height="971" loading="lazy"><figcaption><b>待合のモニター</b>　番号でお呼びし、名前は出しません。音声でも案内します。</figcaption></figure>
+ </div>
+</div></section>
+
+<div class="wrap">
+<section class="sec" id="kufu">
+ <h2><small>KUFU</small>現場で得た<br>工夫</h2>
+ <div>
+  <p class="intro">どれも、本番の院で「ここで手が止まる」と分かってから入れたものです。</p>
+  <div class="kufu">
+   <div class="k"><div class="where">受付</div><h3>予約サイトの二重管理をなくす</h3><p class="voice">ホットペッパーで入った予約を、キレイパスの枠でも閉じ忘れる。</p><p>3つの予約サイトの予約を自動で取り込み、埋まった枠は他のサイトでも自動で閉じます。院のHPからの24時間Web予約も同じ台帳に入ります。</p></div>
+   <div class="k"><div class="where">受付</div><h3>番号札ひとつで、患者が迷わない</h3><p class="voice">呼ばれても聞こえない、自分の番が分からない。</p><p>番号札に本人の診察券QRを印字。待合のモニターと音声で番号と部屋を案内し、スマホにも呼び出しが届きます。</p></div>
+   <div class="k"><div class="where">診察室</div><h3>読みで探せる定型文</h3><p class="voice">「脱毛」を探すのに漢字変換で手が止まる。</p><p>「だつもう」と打てば脱毛のテンプレートが出ます。部位などは選ぶだけの欄にして、記載をタップで終わらせます。</p></div>
+   <div class="k"><div class="where">診察室</div><h3>同意書と見積書をその場で</h3><p class="voice">高額なコースの説明で、紙の書類が何枚も行き来する。</p><p>タブレットで電子署名。見積書は組み合わせを3通り並べて提示し、特商法の書面やクーリングオフの期限も自動で出します。</p></div>
+   <div class="k"><div class="where">新人教育</div><h3>本番の前に、練習用の院</h3><p class="voice">新人が最初から本番で操作するのが怖い。</p><p>毎日15人の架空の患者が来る練習用の院を用意。矢印に沿って受付から会計まで練習でき、記録は7日で自動で消えます。</p></div>
+   <div class="k"><div class="where">iPad・iPhone</div><h3>ホーム画面から、そのまま印刷</h3><p class="voice">iPadのアプリから印刷ボタンを押しても反応しない。</p><p>その場でPDFにして共有シートを開く方式に。予定表・領収書・同意書の控えを、受付のiPadから直接印刷できます。</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="case">
+ <h2><small>CASE</small>導入実績</h2>
+ <div class="doc case-doc"><figure class="shot"><img src="img/fuchu-reception.jpg" alt="府中院の受付のイメージ" width="1200" height="896"><figcaption>受付のイメージ（AIで生成）</figcaption></figure>
+  <div><p class="min" style="font-size:22px;font-weight:700;margin-bottom:6px">しんゆり美容健康クリニック 府中院</p><p style="color:var(--sub);font-size:14px">東京都府中市　2026年11月開院</p><p>開院の準備から、予約・受付・番号札・呼び出し・カルテ・会計までをファストカルテで運用。新院の立ち上げに合わせて、受付のキー操作や待合の読み上げなど、現場で必要になった工夫をその場で加えました。</p></div></div>
+</section>
+
+<section class="sec" id="partial">
+ <h2><small>PARTIAL</small>いまのカルテ<br>のままでも</h2>
+ <div>
+  <p class="intro">カルテを入れ替えなくても大丈夫です。いまお使いの電子カルテや予約システムはそのままに、現場で効いた仕組みだけを足すご相談も受けています。</p>
+  <div class="parts">
+   <div class="part main"><div class="lbl">おすすめ</div><h3>番号札・呼び出し・待合モニター</h3><p>番号札の印刷、受付からの呼び出し、待合のモニターと音声の案内、患者のスマホへの通知。名前を呼ばずに案内できます。</p></div>
+   <div class="part"><h3>予約サイトのまとめ取り込み</h3><p>ホットペッパー・キレイパス・トリビューの予約を1つの台帳に集め、空き状況を自動で合わせます。</p></div>
+   <div class="part"><h3>電子同意書・Web問診</h3><p>タブレットでの署名と、来院前のスマホ問診。紙のスキャンと転記をなくします。</p></div>
+   <div class="part"><h3>院に合わせた仕組みづくり</h3><p>ダッシュボード、院名入りの診察券アプリ、他のシステムとのつなぎ込みなど。</p></div>
+  </div>
+  <p class="terms" style="margin:0">いまのシステムとのつなぎ方（予約データの取り込み、受付での入力など）は、院の環境を見てご提案します。費用は内容に合わせてお見積もりします。</p>
+ </div>
+</section>
+
+<section class="sec" id="record">
+ <h2><small>RECORD</small>打ち直しの<br>記録</h2>
+ <div>
+  <div class="num"><div><b>258</b><span>本番稼働35日間の改修</span></div><div><b>23</b><span>改修した日数</span></div><div><b>58</b><span>1日で入れた最多の改修</span></div></div>
+  <div class="tl">
+   <div class="ev"><div class="d">九月八日</div><b>本番稼働</b><p>美容クリニックの受付・診察室で使いはじめる。</p></div>
+   <div class="ev"><div class="d">十月三日</div><b>練習用の院</b><p>「新人が本番で触るのが怖い」に応えて、練習の環境をつくる。</p></div>
+   <div class="ev hot"><div class="d">十月七日</div><b>一日で五十八の改修</b><p>新院の開院準備。受付のキー操作、番号札、呼び出しの読み上げを一気に仕上げる。</p></div>
+   <div class="ev"><div class="d">十月十一日</div><b>iPadの印刷</b><p>「押しても反応しない」を受けて、その場でPDFにする方式へ。</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="feature">
+ <h2><small>FEATURES</small>できること</h2>
+ <div class="feat">
+  <div><h3>予約・受付</h3><ul><li>予約台帳・24時間Web予約</li><li>ホットペッパー・キレイパス・トリビューの自動取り込み</li><li>番号札・呼び出し・待合モニター</li><li>LINEでの予約確認・前日のお知らせ</li></ul></div>
+  <div><h3>診察・記録</h3><ul><li>電子カルテ（シェーマ・写真・前回コピー）</li><li>定型文・選ぶ欄・オーダーセット</li><li>電子同意書・Web問診</li><li>見積書・契約書（特商法対応）</li></ul></div>
+  <div><h3>会計・経営</h3><ul><li>会計・回数券の消化管理</li><li>デジタル診察券</li><li>経営ダッシュボード</li><li>操作の記録・端末の登録</li></ul></div>
+ </div>
+</section>
+
+<section class="sec" id="price">
+ <h2><small>PRICE</small>料金</h2>
+ <div>
+  <div class="plans">
+   <div class="plan"><div class="tag">まずはカルテだけ</div><h3>ライト</h3><div class="price">19,800<small>円/月</small></div><ul><li>電子カルテ・予約台帳</li><li>会計・回数券</li><li>電子同意書</li></ul><div class="init">導入費 49,800円</div></div>
+   <div class="plan main"><div class="tag">おすすめ</div><h3>スタンダード</h3><div class="price">39,800<small>円/月</small></div><ul><li>ライトの全機能</li><li>予約サイトの自動取り込み</li><li>Web予約・LINE・呼び出し</li><li>診察券・Web問診</li></ul><div class="init">導入費 98,000円</div></div>
+   <div class="plan"><div class="tag">HPもまとめて</div><h3>ホームページ付き</h3><div class="price">54,800<small>円/月</small></div><ul><li>スタンダードの全機能</li><li>クリニックのHP（独自ドメイン）</li><li>料金表はカルテと自動で一致</li></ul><div class="init">導入費 98,000円＋HP制作 98,000円</div></div>
+   <div class="plan"><div class="tag">数字で経営</div><h3>経営プラス</h3><div class="price">79,800<small>円/月</small></div><ul><li>HP付きの全機能</li><li>経営ダッシュボード</li><li>会計ソフト向けの出力</li></ul><div class="init">導入費 98,000円＋HP制作 98,000円</div></div>
+  </div>
+  <p class="terms">いまのカルテのまま一部だけを導入する場合は、<a href="#partial">別途お見積もり</a>です。表示は1院あたり・税抜。最低契約6か月、年払いは10%引き、2院目からは半額。システムの顧問や、医師が現場に入る業務改善は個別にご相談ください。</p>
+ </div>
+</section>
+
+<section class="sec" id="maker">
+ <h2><small>MAKER</small>つくり手</h2>
+ <div class="doc">
+  <div style="max-width:40em"><p>開発しているのは、美容クリニックの院長を務める医師です。聖路加国際病院で初期研修を受け、救急と総合診療の現場を経て、いまは自院の受付と診察室で毎日このカルテを使っています。</p><p>相談の窓口も開発者本人です。現場で困ったことは、そのまま開発者に届きます。</p></div></div>
+</section>
+
+<section class="sec" id="faq">
+ <h2><small>FAQ</small>よくある<br>質問</h2>
+ <div class="faq">
+  <details open><summary>保険診療にも使えますか？</summary><p>自由診療専用です。保険診療をしている院は、いまのところ対象外です。</p></details>
+  <details><summary>いまのカルテからデータを移せますか？</summary><p>患者情報・予約・来院履歴は移せます。データ移行は50,000円からで、元のデータの形式を見て見積もります。</p></details>
+  <details><summary>導入費には何が含まれますか？</summary><p>メニューと料金の登録、同意書・問診の取り込み、端末の設定、スタッフ向けの操作説明です。</p></details>
+  <details><summary>いまのカルテを使い続けたまま、番号札だけ入れられますか？</summary><p>できます。いまのカルテや予約システムはそのままに、番号札・呼び出し・待合モニターだけを導入する方法をご提案します。つなぎ方は院の環境を見て決めます。</p></details>
+    <details><summary>データはどこに保存されますか？</summary><p>国内（東京）のクラウドに保存し、毎日バックアップを取ります。</p></details>
+ </div>
+</section>
+
+<section class="final" id="contact">
+ <h2>あなたの院の「手が止まる場所」を、<br>教えてください。</h2>
+ <p>画面を見ながら30分。カルテごとの入れ替えでも、番号札だけの導入でも、いまの受付の流れに合うかを一緒に確かめます。</p>
+ <a class="btn solid" href="mailto:info@suzuki-medical-engineering.work">導入の相談をする</a>
+</section>
+</div>
+<footer><div class="wrap">合同会社鈴木医工（Suzuki Medical Engineering LLC）　© 2026 ファストカルテ</div></footer>
+</body></html>
