@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <title>ファストカルテ｜現場で鍛えた美容クリニックの電子カルテ</title>
 <meta name="description" content="机の上ではなく、受付と診察室で鍛えた電子カルテ。美容クリニックの現場で得た工夫を、そのまま機能にしています。">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -12,7 +13,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans JP
 .min{font-family:"Shippori Mincho B1",serif}
 a{color:inherit}
 nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-size:14px}
-.logo{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:22px;letter-spacing:.12em;text-decoration:none}
+.logo{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:22px;letter-spacing:.12em;text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:10px}.logo img{width:34px;height:34px}.logo small{font-family:"Noto Sans JP",sans-serif;font-size:11px;letter-spacing:.08em;color:var(--sub);font-weight:500}
 nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0;color:var(--sub)}nav ul a{text-decoration:none}
 .btn{display:inline-block;padding:12px 24px;font-weight:700;text-decoration:none;border:1.5px solid var(--ink)}
 .btn.solid{background:var(--ink);color:var(--paper)}
@@ -109,10 +110,11 @@ footer{padding:30px 0;color:var(--sub);font-size:13px;border-top:1px solid var(-
  .feat{grid-template-columns:1fr}.plans{grid-template-columns:1fr}.plan{border-right:0}
  .doc{flex-direction:column}.shot{flex:none;width:100%}.final h2{font-size:21px}
 }
+.logo,.btn.sm{white-space:nowrap}@media(max-width:760px){.logo{font-size:18px;letter-spacing:.06em;gap:8px}.logo img{width:28px;height:28px}.logo small{display:none}}
 </style></head><body>
 <div class="wrap">
-<nav><a class="logo" href="#">ファストカルテ</a>
-<ul><li><a href="#kufu">現場の工夫</a></li><li><a href="#case">導入実績</a></li><li><a href="#partial">部分導入</a></li><li><a href="#record">鍛えた記録</a></li><li><a href="#price">料金</a></li><li><a href="#maker">つくり手</a></li></ul>
+<nav><a class="logo" href="#"><img src="img/logo.svg" alt="">ファストカルテ<small>FastKarte</small></a>
+<ul><li><a href="#kufu">現場の工夫</a></li><li><a href="#case">導入実績</a></li><li><a href="#partial">部分導入</a></li><li><a href="#price">料金</a></li><li><a href="#maker">つくり手</a></li></ul>
 <a class="btn sm" href="#contact">相談する</a></nav>
 
 <section class="hero">
@@ -120,10 +122,10 @@ footer{padding:30px 0;color:var(--sub);font-size:13px;border-top:1px solid var(-
  <div class="copy">
   <div class="eyebrow">美容・自由診療クリニックの電子カルテ</div>
   <h1>机の上ではなく、<br>現場で鍛えたカルテ。</h1>
-  <p class="lead">朝の受付、混み合う午後、閉院後の締め。スタッフが手を止めた場所には、必ず理由があります。ファストカルテは、医師が自分のクリニックで毎日使いながら、現場で見つけた工夫をひとつずつ機能にしてきた電子カルテです。</p>
+  <p class="lead">朝の受付、混み合う午後、閉院後の締め。スタッフの手が止まったところを、院長でもある医師がその場で見て、直してきました。ファストカルテは、そうして現場で生まれた工夫を詰め込んだ電子カルテです。</p>
   <div class="btns"><a class="btn solid" href="#contact">導入の相談をする</a><a class="btn" href="#price">料金を見る</a></div>
   <div class="case"><b>導入実績</b>しんゆり美容健康クリニック 府中院</div>
-  <div class="facts"><span><b>258</b>回の改修（本番稼働35日間）</span><span><b>3</b>つの予約サイトを自動取り込み</span><span><b>医師</b>が開発・運用</span></div>
+  <div class="facts"><span><b>3</b>つの予約サイトを自動で取り込み</span><span><b>東京</b>のクラウドに保存</span><span><b>医師</b>が開発・運用</span></div>
  </div>
 </section>
 </div>
@@ -142,13 +144,13 @@ footer{padding:30px 0;color:var(--sub);font-size:13px;border-top:1px solid var(-
 <section class="sec" id="kufu">
  <h2><small>KUFU</small>現場で得た<br>工夫</h2>
  <div>
-  <p class="intro">どれも、本番の院で「ここで手が止まる」と分かってから入れたものです。</p>
+  <p class="intro">どれも、実際の院で困ったことがきっかけで入れた機能です。</p>
   <div class="kufu">
-   <div class="k"><div class="where">受付</div><h3>予約サイトの二重管理をなくす</h3><p class="voice">ホットペッパーで入った予約を、キレイパスの枠でも閉じ忘れる。</p><p>3つの予約サイトの予約を自動で取り込み、埋まった枠は他のサイトでも自動で閉じます。院のHPからの24時間Web予約も同じ台帳に入ります。</p></div>
+   <div class="k"><div class="where">受付</div><h3>予約サイトの二重管理をなくす</h3><p class="voice">ホットペッパーで入った予約を、キレイパスの枠でも閉じ忘れる。</p><p>3つの予約サイトの予約を自動で取り込み、埋まった枠はほかのサイトでも閉じます。院のHPからの24時間Web予約も、同じ台帳に入ります。</p></div>
    <div class="k"><div class="where">受付</div><h3>番号札ひとつで、患者が迷わない</h3><p class="voice">呼ばれても聞こえない、自分の番が分からない。</p><p>番号札に本人の診察券QRを印字。待合のモニターと音声で番号と部屋を案内し、スマホにも呼び出しが届きます。</p></div>
-   <div class="k"><div class="where">診察室</div><h3>読みで探せる定型文</h3><p class="voice">「脱毛」を探すのに漢字変換で手が止まる。</p><p>「だつもう」と打てば脱毛のテンプレートが出ます。部位などは選ぶだけの欄にして、記載をタップで終わらせます。</p></div>
+   <div class="k"><div class="where">診察室</div><h3>読みで探せる定型文</h3><p class="voice">「脱毛」を探すのに漢字変換で手が止まる。</p><p>「だつもう」と打てば脱毛のテンプレートが出ます。部位などはタップで選べるので、入力の手間が減ります。</p></div>
    <div class="k"><div class="where">診察室</div><h3>同意書と見積書をその場で</h3><p class="voice">高額なコースの説明で、紙の書類が何枚も行き来する。</p><p>タブレットで電子署名。見積書は組み合わせを3通り並べて提示し、特商法の書面やクーリングオフの期限も自動で出します。</p></div>
-   <div class="k"><div class="where">新人教育</div><h3>本番の前に、練習用の院</h3><p class="voice">新人が最初から本番で操作するのが怖い。</p><p>毎日15人の架空の患者が来る練習用の院を用意。矢印に沿って受付から会計まで練習でき、記録は7日で自動で消えます。</p></div>
+   <div class="k"><div class="where">新人教育</div><h3>本番の前に、練習用の院</h3><p class="voice">新人がいきなり本番で操作するのは不安。</p><p>毎日15人の架空の患者が来る練習用の院を用意。矢印に沿って受付から会計まで練習でき、記録は7日で自動で消えます。</p></div>
    <div class="k"><div class="where">iPad・iPhone</div><h3>ホーム画面から、そのまま印刷</h3><p class="voice">iPadのアプリから印刷ボタンを押しても反応しない。</p><p>その場でPDFにして共有シートを開く方式に。予定表・領収書・同意書の控えを、受付のiPadから直接印刷できます。</p></div>
   </div>
  </div>
@@ -157,35 +159,23 @@ footer{padding:30px 0;color:var(--sub);font-size:13px;border-top:1px solid var(-
 <section class="sec" id="case">
  <h2><small>CASE</small>導入実績</h2>
  <div class="doc case-doc"><figure class="shot"><img src="img/fuchu-reception.jpg" alt="府中院の受付のイメージ" width="1200" height="896"><figcaption>受付のイメージ（AIで生成）</figcaption></figure>
-  <div><p class="min" style="font-size:22px;font-weight:700;margin-bottom:6px">しんゆり美容健康クリニック 府中院</p><p style="color:var(--sub);font-size:14px">東京都府中市　2026年11月開院</p><p>開院の準備から、予約・受付・番号札・呼び出し・カルテ・会計までをファストカルテで運用。新院の立ち上げに合わせて、受付のキー操作や待合の読み上げなど、現場で必要になった工夫をその場で加えました。</p></div></div>
+  <div><p class="min" style="font-size:22px;font-weight:700;margin-bottom:6px">しんゆり美容健康クリニック 府中院</p><p style="color:var(--sub);font-size:14px">東京都府中市　2026年11月開院</p><p>開院準備の段階から導入し、予約・受付・番号札・呼び出し・カルテ・会計までをファストカルテで行います。受付のキー操作や待合の読み上げは、開院準備のなかでスタッフの声を聞いて加えたものです。</p></div></div>
 </section>
 
 <section class="sec" id="partial">
  <h2><small>PARTIAL</small>いまのカルテ<br>のままでも</h2>
  <div>
-  <p class="intro">カルテを入れ替えなくても大丈夫です。いまお使いの電子カルテや予約システムはそのままに、現場で効いた仕組みだけを足すご相談も受けています。</p>
+  <p class="intro">カルテを入れ替えなくても導入できます。いまお使いの電子カルテや予約システムはそのままで、必要な仕組みだけを追加することもご相談ください。</p>
   <div class="parts">
-   <div class="part main"><div class="lbl">おすすめ</div><h3>番号札・呼び出し・待合モニター</h3><p>番号札の印刷、受付からの呼び出し、待合のモニターと音声の案内、患者のスマホへの通知。名前を呼ばずに案内できます。</p></div>
+   <div class="part main"><div class="lbl">おすすめ</div><h3>番号札・呼び出し・待合モニター</h3><p>番号札の印刷、受付からの呼び出し、待合のモニターと音声の案内、患者のスマホへの通知。患者さんの名前を呼ばずにご案内できます。</p></div>
    <div class="part"><h3>予約サイトのまとめ取り込み</h3><p>ホットペッパー・キレイパス・トリビューの予約を1つの台帳に集め、空き状況を自動で合わせます。</p></div>
-   <div class="part"><h3>電子同意書・Web問診</h3><p>タブレットでの署名と、来院前のスマホ問診。紙のスキャンと転記をなくします。</p></div>
+   <div class="part"><h3>電子同意書・Web問診</h3><p>タブレットでの署名と、来院前のスマホ問診。紙のスキャンや転記が要らなくなります。</p></div>
    <div class="part"><h3>院に合わせた仕組みづくり</h3><p>ダッシュボード、院名入りの診察券アプリ、他のシステムとのつなぎ込みなど。</p></div>
   </div>
   <p class="terms" style="margin:0">いまのシステムとのつなぎ方（予約データの取り込み、受付での入力など）は、院の環境を見てご提案します。費用は内容に合わせてお見積もりします。</p>
  </div>
 </section>
 
-<section class="sec" id="record">
- <h2><small>RECORD</small>打ち直しの<br>記録</h2>
- <div>
-  <div class="num"><div><b>258</b><span>本番稼働35日間の改修</span></div><div><b>23</b><span>改修した日数</span></div><div><b>58</b><span>1日で入れた最多の改修</span></div></div>
-  <div class="tl">
-   <div class="ev"><div class="d">九月八日</div><b>本番稼働</b><p>美容クリニックの受付・診察室で使いはじめる。</p></div>
-   <div class="ev"><div class="d">十月三日</div><b>練習用の院</b><p>「新人が本番で触るのが怖い」に応えて、練習の環境をつくる。</p></div>
-   <div class="ev hot"><div class="d">十月七日</div><b>一日で五十八の改修</b><p>新院の開院準備。受付のキー操作、番号札、呼び出しの読み上げを一気に仕上げる。</p></div>
-   <div class="ev"><div class="d">十月十一日</div><b>iPadの印刷</b><p>「押しても反応しない」を受けて、その場でPDFにする方式へ。</p></div>
-  </div>
- </div>
-</section>
 
 <section class="sec" id="feature">
  <h2><small>FEATURES</small>できること</h2>
@@ -212,7 +202,7 @@ footer{padding:30px 0;color:var(--sub);font-size:13px;border-top:1px solid var(-
 <section class="sec" id="maker">
  <h2><small>MAKER</small>つくり手</h2>
  <div class="doc">
-  <div style="max-width:40em"><p>開発しているのは、美容クリニックの院長を務める医師です。聖路加国際病院で初期研修を受け、救急と総合診療の現場を経て、いまは自院の受付と診察室で毎日このカルテを使っています。</p><p>相談の窓口も開発者本人です。現場で困ったことは、そのまま開発者に届きます。</p></div></div>
+  <div style="max-width:40em"><p class="min" style="font-size:22px;font-weight:700;margin-bottom:6px">鈴木 雄哉<span style="font-size:14px;font-weight:500;color:var(--sub);margin-left:12px">医師／合同会社鈴木医工 代表</span></p><p>聖路加国際病院で初期研修を修了し、都立広尾病院で救急科・小児科を研修。現在は藤田医科大学 総合診療科の専攻医として診療しながら、しんゆり美容健康クリニックの院長を務めています。</p><p>ファストカルテは、院長として受付や診察室に立つなかで自分で作ってきたものです。導入のご相談にも、私が直接うかがいます。</p></div></div>
 </section>
 
 <section class="sec" id="faq">
@@ -220,17 +210,17 @@ footer{padding:30px 0;color:var(--sub);font-size:13px;border-top:1px solid var(-
  <div class="faq">
   <details open><summary>保険診療にも使えますか？</summary><p>自由診療専用です。保険診療をしている院は、いまのところ対象外です。</p></details>
   <details><summary>いまのカルテからデータを移せますか？</summary><p>患者情報・予約・来院履歴は移せます。データ移行は50,000円からで、元のデータの形式を見て見積もります。</p></details>
-  <details><summary>導入費には何が含まれますか？</summary><p>メニューと料金の登録、同意書・問診の取り込み、端末の設定、スタッフ向けの操作説明です。</p></details>
+  <details><summary>導入費には何が含まれますか？</summary><p>メニューと料金の登録、同意書・問診の取り込み、端末の設定、スタッフへの操作説明です。</p></details>
   <details><summary>いまのカルテを使い続けたまま、番号札だけ入れられますか？</summary><p>できます。いまのカルテや予約システムはそのままに、番号札・呼び出し・待合モニターだけを導入する方法をご提案します。つなぎ方は院の環境を見て決めます。</p></details>
     <details><summary>データはどこに保存されますか？</summary><p>国内（東京）のクラウドに保存し、毎日バックアップを取ります。</p></details>
  </div>
 </section>
 
 <section class="final" id="contact">
- <h2>あなたの院の「手が止まる場所」を、<br>教えてください。</h2>
- <p>画面を見ながら30分。カルテごとの入れ替えでも、番号札だけの導入でも、いまの受付の流れに合うかを一緒に確かめます。</p>
+ <h2>まずは30分、<br>画面を見ながらお話ししましょう。</h2>
+ <p>カルテごと入れ替える場合も、番号札だけ入れたい場合も、いまの受付の流れに合うかどうかを一緒に確認します。</p>
  <a class="btn solid" href="mailto:info@suzuki-medical-engineering.work">導入の相談をする</a>
 </section>
 </div>
-<footer><div class="wrap">合同会社鈴木医工（Suzuki Medical Engineering LLC）　© 2026 ファストカルテ</div></footer>
+<footer><div class="wrap"><img src="img/logo.svg" alt="" width="18" height="18" style="vertical-align:-3px;margin-right:6px">合同会社鈴木医工（Suzuki Medical Engineering LLC）　© 2026 ファストカルテ</div></footer>
 </body></html>
